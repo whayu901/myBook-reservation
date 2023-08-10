@@ -1,4 +1,5 @@
 /** @type {import('tailwindcss').Config} */
+
 const colors = require('./src/shared/themes/colors');
 module.exports = {
   content: ['./App.{js,jsx,ts,tsx}', './src/**/*.{js,jsx,ts,tsx}'],
@@ -19,6 +20,10 @@ module.exports = {
     },
     extend: {
       colors,
+      fontFamily: {
+        rubikMedium: ['Rubik-Medium'],
+        rubikRegular: ['Rubik-Regular'],
+      },
     },
   },
   plugins: [],
