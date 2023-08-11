@@ -9,7 +9,13 @@ const ListBooks: React.FC = () => {
   const inset = useSafeAreaInsets();
 
   return (
-    <View style={{ paddingTop: inset.top + 20, marginHorizontal: 15, flex: 1 }}>
+    <View
+      style={{
+        paddingTop: inset.top + 20,
+        marginHorizontal: 15,
+        flex: 1,
+        backgroundColor: '#f6f6f6',
+      }}>
       <Text className={`${Heading.H1}`}>Book List</Text>
       <Spacer height={16} />
       <BookList />
