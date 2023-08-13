@@ -1,15 +1,26 @@
 [![Code Quality](https://github.com/whayu901/myBook-reservation/actions/workflows/code-quality.yml/badge.svg)](https://github.com/whayu901/myBook-reservation/actions/workflows/code-quality.yml)
 
+## Code Quality
+
+| Statements                                                                               | Branches                                                                             | Functions                                                                              | Lines                                                                          |
+| ---------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| ![Statements](https://img.shields.io/badge/statements-100%25-brightgreen.svg?style=flat) | ![Branches](https://img.shields.io/badge/branches-100%25-brightgreen.svg?style=flat) | ![Functions](https://img.shields.io/badge/functions-100%25-brightgreen.svg?style=flat) | ![Lines](https://img.shields.io/badge/lines-100%25-brightgreen.svg?style=flat) |
+
 # MyBook CosMart TEST MOBILE ENGINEER
 
 i have finished for test mobile engineer that i should create app using OpenLibrary API. At below i will attach several proof image for this test.
 
-| Book List | Reservation List | Input Reservation |
-| :-------: | :--------------: | :---------------: |
+## Image proof for Book List
 
-| ![Screenshot_1691941302](https://github.com/whayu901/MyRukit/assets/32776398/83aab190-61db-462c-9c94-90f00c770296)
-| ![Screenshot_1691941307](https://github.com/whayu901/MyRukit/assets/32776398/96b7446b-5c2e-43b2-87cd-e70312b801fc) | ![Screenshot_1691941294](https://github.com/whayu901/MyRukit/assets/32776398/395c021a-ff42-4629-a5fa-5cae871ded61)
-|
+![Screenshot_1691941302](https://github.com/whayu901/MyRukit/assets/32776398/83aab190-61db-462c-9c94-90f00c770296)
+
+## Image proof for Reservation List
+
+![Screenshot_1691941307](https://github.com/whayu901/MyRukit/assets/32776398/96b7446b-5c2e-43b2-87cd-e70312b801fc)
+
+## Image proof for Input Reservation
+
+![Screenshot_1691941294](https://github.com/whayu901/MyRukit/assets/32776398/395c021a-ff42-4629-a5fa-5cae871ded61)
 
 # Getting Started
 
