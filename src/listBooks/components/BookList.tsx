@@ -1,14 +1,5 @@
-import React, { memo, useCallback } from 'react';
-import {
-  View,
-  FlatList,
-  Pressable,
-  FlatListProps,
-  StyleProp,
-  ViewStyle,
-  Text,
-  Dimensions,
-} from 'react-native';
+import React from 'react';
+import { View, FlatList, Pressable, Text } from 'react-native';
 import { Authors, BookItem } from '../definitions/types';
 import useQueryBookList from '../hooks/useQueryBookList';
 import Spacer from '../../shared/components/Spacer';
@@ -17,10 +8,14 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 type BookListProps = {
   data?: BookItem[];
+  onClickDetail?: () => void;
+  selectedData?: any[];
+  onClickSelectItem?: (item: BookItem) => void;
+  isSelectedType?: boolean;
 };
 
 const BookList: React.FC<BookListProps> = props => {
-  const { data, isFetching } = useQueryBookList();
+  const { data } = useQueryBookList();
   const inset = useSafeAreaInsets();
 
   const arrayToStringListAuthors = (value: Authors[]) => {
@@ -32,8 +27,15 @@ const BookList: React.FC<BookListProps> = props => {
   const renderItem = ({ item, index }: { item: BookItem; index: number }) => {
     return (
       <Pressable
-        className={`${
-          index % 2 ? '' : 'mr-2'
+        onPress={() => {
+          if (props?.isSelectedType) {
+            props?.onClickSelectItem?.(item);
+          } else {
+            props?.onClickDetail?.();
+          }
+        }}
+        className={`${index % 2 ? '' : 'mr-2'} ${
+          props?.selectedData?.includes(item) ? 'border-green-500 border' : ''
         } rounded-lg px-4 py-[10px] bg-white flex-1 shadow-sm`}>
         <Text className={`${BodyText.Large.Bold}`}>{item.title}</Text>
         <View className="pt-2">
@@ -53,15 +55,17 @@ const BookList: React.FC<BookListProps> = props => {
   };
 
   return (
-    <FlatList
-      data={data?.works}
-      numColumns={2}
-      showsVerticalScrollIndicator={false}
-      renderItem={renderItem}
-      contentContainerStyle={{ paddingBottom: inset.bottom }}
-      ItemSeparatorComponent={() => <Spacer height={16} />} // Adjust the spacing value as needed
-      columnWrapperStyle={{ justifyContent: 'space-between' }}
-    />
+    <>
+      <FlatList
+        data={data?.works}
+        numColumns={2}
+        showsVerticalScrollIndicator={false}
+        renderItem={renderItem}
+        contentContainerStyle={{ paddingBottom: inset.bottom + 50 }}
+        ItemSeparatorComponent={() => <Spacer height={16} />}
+        columnWrapperStyle={{ justifyContent: 'space-between' }}
+      />
+    </>
   );
 };
 
