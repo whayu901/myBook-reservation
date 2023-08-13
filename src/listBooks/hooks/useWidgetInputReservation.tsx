@@ -1,13 +1,34 @@
 import { useCallback, useState } from 'react';
+import { BookItem } from '../definitions/types';
+import { useGlobalContext } from '../../shared/context/GlobalStateContext';
 
-const useWidgetInputReservation = () => {
+interface Props {
+  selectedBooks?: BookItem[];
+  onClickConfirmReservation?: () => void;
+}
+
+const useWidgetInputReservation = ({
+  selectedBooks,
+  onClickConfirmReservation,
+}: Props) => {
   const [isLoading, setLoading] = useState(false);
   const [isOpenDatePicker, setOpenDatePicker] = useState(false);
   const [isOpenTimePicker, setOpenTimePicker] = useState(false);
+  const { setGlobalValue, globalValue } = useGlobalContext();
 
-  const handleSubmitReservation = useCallback((value: any) => {
-    console.log({ value });
-  }, []);
+  const handleSubmitReservation = useCallback(
+    (value: any) => {
+      const dataSavedReservation = {
+        ...value,
+        listBooks: selectedBooks,
+      };
+
+      const updatedGlobalValue = globalValue || [];
+      setGlobalValue([...updatedGlobalValue, dataSavedReservation]);
+      onClickConfirmReservation?.();
+    },
+    [selectedBooks],
+  );
 
   return {
     isLoading,

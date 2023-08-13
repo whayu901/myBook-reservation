@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { View, FlatList, Pressable, Text } from 'react-native';
 import { Authors, BookItem } from '../definitions/types';
 import useQueryBookList from '../hooks/useQueryBookList';
@@ -69,4 +69,4 @@ const BookList: React.FC<BookListProps> = props => {
   );
 };
 
-export default BookList;
+export default memo(BookList);

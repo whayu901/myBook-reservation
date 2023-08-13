@@ -4,6 +4,7 @@ import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
 import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import Root from './src/root';
+import { GlobalProvider } from './src/shared/context/GlobalStateContext';
 
 const queryClient = new QueryClient({
   defaultOptions: {
@@ -23,15 +24,17 @@ const queryClient = new QueryClient({
 
 const App = () => {
   return (
-    <SafeAreaProvider>
-      <QueryClientProvider client={queryClient}>
-        <GestureHandlerRootView className="flex-1">
-          <BottomSheetModalProvider>
-            <Root />
-          </BottomSheetModalProvider>
-        </GestureHandlerRootView>
-      </QueryClientProvider>
-    </SafeAreaProvider>
+    <GlobalProvider>
+      <SafeAreaProvider>
+        <QueryClientProvider client={queryClient}>
+          <GestureHandlerRootView className="flex-1">
+            <BottomSheetModalProvider>
+              <Root />
+            </BottomSheetModalProvider>
+          </GestureHandlerRootView>
+        </QueryClientProvider>
+      </SafeAreaProvider>
+    </GlobalProvider>
   );
 };
 
