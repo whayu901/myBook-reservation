@@ -4,7 +4,7 @@ import ReservedList from './ReservedList';
 import { DataReservedBook } from '../definitions/types';
 
 describe('ReservedList Component', () => {
-  const mockData: DataReservedBook[] = [
+  const mockData: DataReservedBook[] | any[] = [
     {
       name: 'John Doe',
       date: '2023-08-15',
