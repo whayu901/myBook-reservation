@@ -25,10 +25,10 @@ jobs:
         uses: gradle/gradle-build-action@v2
 
       - name: Make gradlew executable
-        run: chmod +x ./gradlew
+        run: cd android && chmod +x ./gradlew && cd ..
 
       - name: Execute Gradle command - assembleDebug
-        run: ./gradlew assembleDebug
+        run: cd android && ./gradlew assembleDebug && cd ..
 
       - name: Upload Artifact to Firebase App Distribution
         uses: wzieba/Firebase-Distribution-Github-Action@v1
